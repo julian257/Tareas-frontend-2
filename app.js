@@ -9,8 +9,11 @@ async function cargarTareas() {
     data.forEach(t => {
         html += `
             <div>
-                <b>${t.titulo}</b> - ${t.descripcion}
-                <button onclick="eliminarTarea(${t.id})">Eliminar</button>
+                <div class="task-text">
+                    <strong>${t.titulo}</strong>
+                    <span>${t.descripcion}</span>
+                </div>
+                <button onclick="eliminarTarea(${t.id})" class="delete-btn">Eliminar</button>
             </div>
         `;
     });
@@ -28,6 +31,9 @@ async function crearTarea() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ titulo, descripcion })
     });
+
+    document.getElementById("titulo").value = "";
+    document.getElementById("descripcion").value = "";
 
     cargarTareas();
 }
