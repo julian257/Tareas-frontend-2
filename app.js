@@ -1,4 +1,4 @@
-const API = "https://api-tareas-production.up.railway.app/";
+const API = "https://api-tareas-production.up.railway.app/api/tareas";
 
 // Cargar tareas
 async function cargarTareas() {
