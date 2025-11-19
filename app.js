@@ -29,19 +29,13 @@ async function cargarContactos() {
 
 // Crear contacto
 async function crearContacto() {
-
-    let enlace = document.getElementById("enlace_externo").value.trim();
-    if (!enlace.startsWith("http") && enlace !== "") {
-        enlace = "https://" + enlace;
-    }
-
     const body = {
         nombre: document.getElementById("nombre").value,
         correo: document.getElementById("correo").value,
         telefono: document.getElementById("telefono").value,
         empresa: document.getElementById("empresa").value,
         foto_url: document.getElementById("foto_url").value,
-        enlace_externo: enlace
+        enlace_externo: document.getElementById("enlace_externo").value
     };
 
     await fetch(API, {
@@ -53,12 +47,9 @@ async function crearContacto() {
     cargarContactos();
 }
 
-// Eliminar contacto
+// Eliminar
 async function eliminarContacto(id) {
-    await fetch(`${API}/${id}`, {
-        method: "DELETE"
-    });
-
+    await fetch(`${API}/${id}`, { method: "DELETE" });
     cargarContactos();
 }
 
