@@ -1,99 +1,71 @@
-/* Estilo general */
 body {
-    font-family: "Segoe UI", sans-serif;
-    background: #f5f7fa;
+    background: #f4f6f9;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
-/* Contenedor principal */
 .container {
-    max-width: 700px;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: auto;
 }
 
-/* Títulos */
 h1 {
     text-align: center;
+    margin-bottom: 30px;
     color: #333;
-    margin-bottom: 25px;
 }
 
-h2 {
-    color: #444;
-    margin-top: 20px;
-}
-
-/* Tarjeta del formulario */
-.card {
-    background: #fff;
+.card, .item {
+    background: white;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
 }
 
-/* Inputs */
 input {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-}
-
-/* Botón */
-.btn {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    background: #0077ff;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.btn:hover {
-    background: #005bd1;
-}
-
-/* Contenedor de tareas */
-.task-list > div {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
     margin-bottom: 12px;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-/* Botón eliminar */
-.delete-btn {
-    background: #ff4b4b;
-    border: none;
-    padding: 8px 12px;
+button {
+    background: #0066ff;
     color: white;
-    border-radius: 6px;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.delete-btn:hover {
-    background: #d93636;
+button:hover {
+    background: #004ec7;
 }
 
-/* Texto de tarea */
-.task-text {
+.lista .item {
     display: flex;
-    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.info {
+    flex: 1;
+}
+
+.info b {
+    font-size: 18px;
+}
+
+.item a {
+    color: #0066ff;
 }
