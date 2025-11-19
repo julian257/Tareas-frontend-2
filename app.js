@@ -15,8 +15,7 @@ async function cargarContactos() {
                 <b>${c.nombre}</b><br>
                 ${c.correo}<br>
                 ${c.telefono || ''}<br>
-                ${c.empresa || ''}
-                <br>
+                ${c.empresa || ''}<br>
                 <a href="${c.enlace_externo}" target="_blank">Ver más</a>
             </div>
 
@@ -30,13 +29,19 @@ async function cargarContactos() {
 
 // Crear contacto
 async function crearContacto() {
+
+    let enlace = document.getElementById("enlace_externo").value.trim();
+    if (!enlace.startsWith("http") && enlace !== "") {
+        enlace = "https://" + enlace;
+    }
+
     const body = {
         nombre: document.getElementById("nombre").value,
         correo: document.getElementById("correo").value,
         telefono: document.getElementById("telefono").value,
         empresa: document.getElementById("empresa").value,
         foto_url: document.getElementById("foto_url").value,
-        enlace_externo: document.getElementById("enlace_externo").value
+        enlace_externo: enlace
     };
 
     await fetch(API, {
