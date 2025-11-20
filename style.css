@@ -1,71 +1,63 @@
 body {
-    background: #f4f6f9;
     font-family: Arial, sans-serif;
+    background: #f4f6f9;
     margin: 0;
     padding: 20px;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 700px;
     margin: auto;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
-    margin-bottom: 30px;
     color: #333;
 }
 
-.card, .item {
+.card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    padding: 15px;
+    box-shadow: 0 0 10px #0001;
+    border-radius: 8px;
     margin-bottom: 20px;
 }
 
-input {
+.card input {
+    display: block;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 8px;
 }
 
 button {
-    background: #0066ff;
-    color: white;
-    border: none;
     padding: 12px 18px;
-    border-radius: 8px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #004ec7;
+    background: #005fcc;
 }
 
-.lista .item {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+.item {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #0002;
 }
 
-.item img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
+.item button {
+    background: red;
+    margin-top: 10px;
 }
 
-.info {
-    flex: 1;
-}
-
-.info b {
-    font-size: 18px;
-}
-
-.item a {
-    color: #0066ff;
+.item button:hover {
+    background: darkred;
 }

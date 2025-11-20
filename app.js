@@ -1,41 +1,35 @@
-const API = "https://api-tareas-production.up.railway.app/api/contactos";
+// URL de tu API de tareas
+const API = "https://api-tareas-production.up.railway.app/api/tareas";
 
-// Cargar contactos
-async function cargarContactos() {
+// Cargar tareas
+async function cargarTareas() {
     const res = await fetch(API);
     const data = await res.json();
 
     let html = "";
-    data.forEach(c => {
+    data.forEach(t => {
         html += `
         <div class="item">
-            <img src="${c.foto_url || 'https://via.placeholder.com/60'}" alt="foto">
-            
             <div class="info">
-                <b>${c.nombre}</b><br>
-                ${c.correo}<br>
-                ${c.telefono || ''}<br>
-                ${c.empresa || ''}<br>
-                <a href="${c.enlace_externo}" target="_blank">Ver más</a>
+                <b>${t.titulo}</b><br>
+                ${t.descripcion || ''}<br>
+                <small>Estado: ${t.estado}</small>
             </div>
 
-            <button onclick="eliminarContacto(${c.id})">Eliminar</button>
+            <button onclick="eliminarTarea(${t.id})">Eliminar</button>
         </div>
         `;
     });
 
-    document.getElementById("contactos").innerHTML = html;
+    document.getElementById("tareas").innerHTML = html;
 }
 
-// Crear contacto
-async function crearContacto() {
+// Crear tarea
+async function crearTarea() {
     const body = {
-        nombre: document.getElementById("nombre").value,
-        correo: document.getElementById("correo").value,
-        telefono: document.getElementById("telefono").value,
-        empresa: document.getElementById("empresa").value,
-        foto_url: document.getElementById("foto_url").value,
-        enlace_externo: document.getElementById("enlace_externo").value
+        titulo: document.getElementById("titulo").value,
+        descripcion: document.getElementById("descripcion").value,
+        estado: document.getElementById("estado").value
     };
 
     await fetch(API, {
@@ -44,13 +38,16 @@ async function crearContacto() {
         body: JSON.stringify(body)
     });
 
-    cargarContactos();
+    cargarTareas();
 }
 
-// Eliminar
-async function eliminarContacto(id) {
-    await fetch(`${API}/${id}`, { method: "DELETE" });
-    cargarContactos();
+// Eliminar tarea
+async function eliminarTarea(id) {
+    await fetch(`${API}/${id}`, {
+        method: "DELETE"
+    });
+
+    cargarTareas();
 }
 
-cargarContactos();
+cargarTareas();

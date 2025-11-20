@@ -2,30 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestor de Contactos</title>
+    <title>Gestor de Tareas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1>Gestor de Contactos</h1>
+    <h1>Gestor de Tareas</h1>
 
     <div class="card">
-        <h2>Crear contacto</h2>
+        <h2>Crear tarea</h2>
 
-        <input id="nombre" placeholder="Nombre">
-        <input id="correo" placeholder="Correo">
-        <input id="telefono" placeholder="Teléfono">
-        <input id="empresa" placeholder="Empresa">
-        <input id="foto_url" placeholder="URL de foto">
-        <input id="enlace_externo" placeholder="Enlace (LinkedIn, CV, etc.)">
+        <input id="titulo" placeholder="Título de la tarea">
+        <input id="descripcion" placeholder="Descripción">
+        <input id="fecha" type="date" placeholder="Fecha límite">
 
-        <button onclick="crearContacto()">Guardar</button>
+        <button onclick="crearTarea()">Guardar</button>
     </div>
 
-    <h2>Lista de Contactos</h2>
-    <div id="contactos" class="lista"></div>
+    <h2>Lista de Tareas</h2>
+    <div id="tareas" class="lista"></div>
 
 </div>
 
