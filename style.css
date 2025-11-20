@@ -45,19 +45,19 @@ button:hover {
     background: #005fcc;
 }
 
-.item {
+.tarea {
     background: white;
+    margin-bottom: 12px;
     padding: 12px;
-    margin-bottom: 10px;
+    box-shadow: 0 0 6px #0001;
     border-radius: 6px;
-    box-shadow: 0 0 6px #0002;
 }
 
-.item button {
-    background: red;
+.tarea button {
     margin-top: 10px;
+    background: red;
 }
 
-.item button:hover {
+.tarea button:hover {
     background: darkred;
 }
