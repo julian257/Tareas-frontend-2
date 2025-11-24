@@ -1,63 +1,71 @@
 body {
-    font-family: Arial, sans-serif;
     background: #f4f6f9;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
 .container {
-    max-width: 700px;
+    max-width: 900px;
     margin: auto;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
+    margin-bottom: 30px;
     color: #333;
 }
 
-.card {
+.card, .item {
     background: white;
-    padding: 15px;
-    box-shadow: 0 0 10px #0001;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
     margin-bottom: 20px;
 }
 
-.card input {
-    display: block;
+input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 button {
-    padding: 12px 18px;
-    border: none;
-    background: #007bff;
+    background: #0066ff;
     color: white;
-    border-radius: 6px;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #005fcc;
+    background: #004ec7;
 }
 
-.tarea {
-    background: white;
-    margin-bottom: 12px;
-    padding: 12px;
-    box-shadow: 0 0 6px #0001;
-    border-radius: 6px;
+.lista .item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
-.tarea button {
-    margin-top: 10px;
-    background: red;
+.item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.tarea button:hover {
-    background: darkred;
+.info {
+    flex: 1;
+}
+
+.info b {
+    font-size: 18px;
+}
+
+.item a {
+    color: #0066ff;
 }

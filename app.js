@@ -1,71 +1,60 @@
-// URL de tu API en Railway
-const API = "https://api-tareas-production.up.railway.app/api/tareas";
+const API = "https://api-tareas-production.up.railway.app/api/contactos";
 
-// Cargar todas las tareas
-async function cargarTareas() {
-    try {
-        const res = await fetch(API);
-        if (!res.ok) throw new Error("Error al cargar tareas");
+// Cargar contactos
+async function cargarContactos() {
+    const res = await fetch(API);
+    const data = await res.json();
 
-        const data = await res.json();
-
-        let html = "";
-        data.forEach(t => {
-            html += `
-            <div class="item">
-                <div class="info">
-                    <b>${t.titulo}</b><br>
-                    ${t.descripcion || ''}<br>
-                    <small>${t.fecha || ''}</small>
-                </div>
-
-                <button onclick="eliminarTarea(${t.id})">Eliminar</button>
+    let html = "";
+    data.forEach(c => {
+        html += `
+        <div class="item">
+            <img src="${c.foto_url || 'https://via.placeholder.com/60'}" alt="foto">
+            
+            <div class="info">
+                <b>${c.nombre}</b><br>
+                ${c.correo}<br>
+                ${c.telefono || ''}<br>
+                ${c.empresa || ''}
+                <br>
+                <a href="${c.enlace_externo}" target="_blank">Ver más</a>
             </div>
-            `;
-        });
 
-        document.getElementById("tareas").innerHTML = html;
+            <button onclick="eliminarContacto(${c.id})">Eliminar</button>
+        </div>
+        `;
+    });
 
-    } catch (error) {
-        console.error(error);
-        alert("Error cargando tareas");
-    }
+    document.getElementById("contactos").innerHTML = html;
 }
 
-// Crear nueva tarea
-async function crearTarea() {
+// Crear contacto
+async function crearContacto() {
     const body = {
-        titulo: document.getElementById("titulo").value,
-        descripcion: document.getElementById("descripcion").value,
-        fecha: document.getElementById("fecha").value
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("correo").value,
+        telefono: document.getElementById("telefono").value,
+        empresa: document.getElementById("empresa").value,
+        foto_url: document.getElementById("foto_url").value,
+        enlace_externo: document.getElementById("enlace_externo").value
     };
 
-    try {
-        await fetch(API, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body)
-        });
+    await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
 
-        cargarTareas();
-
-    } catch (error) {
-        console.error(error);
-        alert("Error creando tarea");
-    }
+    cargarContactos();
 }
 
-// Eliminar tarea
-async function eliminarTarea(id) {
-    try {
-        await fetch(`${API}/${id}`, { method: "DELETE" });
-        cargarTareas();
+// Eliminar contacto
+async function eliminarContacto(id) {
+    await fetch(`${API}/${id}`, {
+        method: "DELETE"
+    });
 
-    } catch (error) {
-        console.error(error);
-        alert("Error eliminando tarea");
-    }
+    cargarContactos();
 }
 
-// Inicializar
-cargarTareas();
+cargarContactos();
